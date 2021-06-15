@@ -1,5 +1,4 @@
-# -nginxproxymanager-duckdns - Swarm
- Docker Swarm - Nginxproxymanager with Letsencrypt and Duckdns 
+# Docker Swarm - Nginxproxymanager with Letsencrypt and Duckdns 
 
 ## DUCKDNS
 Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free and does not require reactivation or forum posts to maintain its existence. Create an account to use the service and after that create a subdomain.
@@ -7,7 +6,7 @@ Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to 
 ## NAT Ports
 - Need to create route/nat for ports on your modem.
 
-    | Porta                  | Funcao
+    | Port                   | Desc
     | -------------------    | ----------------------------------------------------------------
     | 80                     | Port HTTP - Needed for letsencrypt dnschallenge 
     | 443                    | Port HTTPS
