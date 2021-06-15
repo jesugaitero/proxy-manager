@@ -108,3 +108,4 @@ Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to 
      ```
 
 ## Project WIKI [Nginxproxymanager](https://nginxproxymanager.com/guide/#project-goal)
+## [DUCKDNS](https://www.duckdns.org)
