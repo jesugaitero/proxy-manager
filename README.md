@@ -1,5 +1,4 @@
-# -nginxproxymanager-duckdns - Swarm
- Docker Swarm - Nginxproxymanager with Letsencrypt and Duckdns 
+# Docker Swarm - Nginxproxymanager with Letsencrypt and Duckdns 
 
 ## DUCKDNS
 Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free and does not require reactivation or forum posts to maintain its existence. Create an account to use the service and after that create a subdomain.
@@ -88,7 +87,14 @@ Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to 
 
 ## Access with web browser
 - Access your duckdns subdomain url via browser 
-    1) http://domain.duckdns.org        ---- Nginx Proxy Manager 
+    1) http://domain.duckdns.org:81        ---- Nginx Proxy Manager 
+	2) http://domain.duckdns.org        ---- Nginx default page
+
+- Default Admin User:
+    ```bash
+	Email:    admin@example.com
+	Password: changeme
+    ```	   
 
 ## Removing/updating stack
 - To remove the stack, just use
@@ -101,3 +107,4 @@ Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to 
     $ docker stack deploy --prune -c docker-compose.yml nginxpmanagerduckdns
      ```
 
+## Project WIKI [Nginxproxymanager](https://nginxproxymanager.com/guide/#project-goal)
