@@ -1,0 +1,44 @@
+version: '3'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    env_file:
+      - .env_npm
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    env_file:
+      - .env_db
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+  duckdns:
+    image: linuxserver/duckdns
+    deploy:
+      resources:
+        limits:
+          memory: 70M
+        reservations:
+          memory: 40M
+      placement:
+        constraints:
+          - node.role == manager
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    env_file:
+      - .env_duckdns
