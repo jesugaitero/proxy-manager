@@ -83,6 +83,7 @@ Duckdns is a free service that will point a DNS (sub domains of duckdns.org) to 
 - Viewing Logs
     ```bash
     $ docker container logs namecontainer/ID
+    $ docker service ps --no-trunc nginxpmanagerduckdns
     ```
 
 ## Access with web browser
