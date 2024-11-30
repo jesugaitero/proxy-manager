@@ -51,4 +51,4 @@ services:
 networks:
   proxy:
     # Specify driver options
-    driver: proxy_default
+    driver: bridge
