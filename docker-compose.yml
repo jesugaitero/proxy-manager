@@ -18,7 +18,7 @@ services:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
     networks: 
-      - proxy_default
+      - proxy
 
   db:
     image: 'jc21/mariadb-aria:latest'
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
     networks: 
-      - proxy_default
+      - proxy
 
   duckdns:
     image: linuxserver/duckdns
@@ -46,4 +46,9 @@ services:
     env_file:
       - .env_duckdns
     networks: 
-      - proxy_default
+      - proxy
+
+networks:
+  proxy:
+    # Specify driver options
+    driver: proxy_default
