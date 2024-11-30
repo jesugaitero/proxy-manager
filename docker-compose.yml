@@ -7,6 +7,12 @@ services:
       - '443:443'
     env_file:
       - .env_npm
+    environment:
+      - DB_MYSQL_HOST=db
+      - DB_MYSQL_PORT=3306
+      - DB_MYSQL_USER=npm
+      - DB_MYSQL_PASSWORD=npm
+      - DB_MYSQL_NAME=npm
     deploy:
       placement:
         constraints:
@@ -24,6 +30,11 @@ services:
     image: 'jc21/mariadb-aria:latest'
     env_file:
       - .env_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=npm
+      - MYSQL_DATABASE=npm
+      - MYSQL_USER=npm
+      - MYSQL_PASSWORD=npm
     volumes:
       - ./data/mysql:/var/lib/mysql
     networks: 
@@ -45,10 +56,20 @@ services:
         condition: on-failure
     env_file:
       - .env_duckdns
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+        # timezone
+      - TZ=America/new_york
+        # accept multiple domains, use comma. Ex: domain1.duckdns.org,domain2.duckdns.org,domain3.duckdns.org
+      - SUBDOMAINS=suso-portainer.duckdns.org
+        # Token duckdns
+      - TOKEN=50a3fcd6-4aed-4d06-8c73-4a293103a42b
+
     networks: 
       - proxy
 
 networks:
   proxy:
     # Specify driver options
-    driver: bridge
+    driver: proxy_default
